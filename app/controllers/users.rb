@@ -2,7 +2,7 @@ require "sinatra/flash"
 enable :sessions
 
   before '/users/:id/edit' do
-    unless current_user.id == params[:id]
+    unless current_user.id == params[:id].to_i
       redirect "/questions"
     end
   end
