@@ -5,6 +5,7 @@ gem 'pg'
 
 # Sinatra driver
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'sinatra-contrib'
 # gem 'sinatra-flash'
 
