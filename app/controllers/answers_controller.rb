@@ -2,7 +2,6 @@
 
 get '/answers' do
 
-  erb :
 end
 
 # The form for this route will be on the question.erb page
@@ -23,6 +22,7 @@ post '/answers' do
   else
     # ???@error = error.full_message
     erb :questions
+  end
 end
 
 
