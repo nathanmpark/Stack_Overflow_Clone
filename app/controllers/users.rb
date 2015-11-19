@@ -23,6 +23,7 @@ post "/users/new" do
   @user = User.new(username: params[:username], email: params[:email], password_hash: params[:password])
   @user.password = params[:password]
   if @user.save!
+    session[:id] = @user.id
     redirect "/users/#{@user.id}"
   else
     #@user.errors.full_messages
@@ -34,7 +35,7 @@ end
 get '/users/:id' do
   @user = User.find(params[:id])
   # if current_user.id == @user.id
-  session[:id] = @user.id
+  # session[:id] = @user.id
   erb :'/users/show'
   #else
     #flash[:error] = "Fuck off"

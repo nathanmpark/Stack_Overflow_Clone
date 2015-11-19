@@ -11,12 +11,12 @@
 <br>
 <label>Email:</label><%=@user.email%>
 <br>
-<a href="/users/<%=current_user.id%>/edit"><button>edit profile</button></a>
+<a href="/users/<%=@user.id%>/edit"><button>edit profile</button></a>
 
 <h2> Your Questions </h2>
 <ul>
   <% @user.questions.each do |question| %>
-  <li><%= question.title %></li>
+  <li><a href='/questions/<%=question.id%>'><%= question.title %></li></a>
   <% end %>
 </ul>
 
@@ -26,7 +26,7 @@
 <ul>
   <% @user.answers.each do |answer| %>
   <li style='font-weight:bold;'> <%= answer.question.title %></li>
-  <li> <%= answer.content %> </li>
+  <li> <a href='/questions/<%=answer.question.id%>'> <%= answer.content %> </li></a>
   <br>
   <% end %>
 </ul>
