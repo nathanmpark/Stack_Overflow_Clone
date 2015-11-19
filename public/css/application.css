@@ -1,13 +1,62 @@
+a:link {color: #3f022c;}
+a:visited {color: #126e70;}
+a:hover {color: #e0eff1;}
+
+body {
+	background-color: #7db4b5;
+}
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 900px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  border: 1px dotted white;
+  border-radius: 7%;
+  background-color: white;
+}
+
+.content-container {
+  margin: 20px auto;
+  width: 800px;
+  padding: 50px 20px 20px 20px;
+}
+
+
+
+#dbc-overflow {
+	text-align: center;
+	font-size: 2.5em;
+	color: #4d0637;
+	margin-bottom: -5px;
+}
+
 }
 th {
   text-align: left;
 }
 
+.home-nav {
+	float: left;
+	font-size: 1.5em;
+	padding-left: 30px;
+}
+
 .right-nav {
 	float: right;
+	padding-left: 5px;
+	padding-right: 10px;
+	font-size: 1.2em;
+}
+
+#question-title-1 {
+	font-size: 2em;
+}
+
+#question-content {
+	font-size: 1em;
+	padding-top: 15px;
+	padding-top: 10px;
+}
+
+#response_holder {
+	font-style: italic;
 }
