@@ -1,4 +1,4 @@
-### index ###
+### index of questions // homepage ###
 get '/questions' do
 		@questions = Question.all
 		erb :'questions/index'
@@ -19,8 +19,8 @@ end
 get '/questions/:id' do
 	@question = Question.find(params[:id])
 	session[:question_id] = @question.id
-	@answer = @question.answer
-	@response = @question.response
+	# @answer = @question.answer
+	# @response = @question.response
 	erb :'questions/show'
 end
 
