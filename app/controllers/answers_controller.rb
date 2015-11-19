@@ -8,6 +8,7 @@
 
 # end
 
+#CREATE
 post '/answers' do
   # we will ajax this
   # current_user
@@ -25,8 +26,9 @@ post '/answers' do
   end
 end
 
-
+#
 get '/answers/:id' do
+  @answers = Answer.where(id: params[:id])
 
 end
 

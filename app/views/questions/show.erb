@@ -1,7 +1,7 @@
 <div class="container">
 <br>
-	
-	<div class="question">	
+
+	<div class="question">
 		<div id="question-title"> <%= @question.title %></div>
 		<div id="question-content"> <%= @question.content %> </div>
 	</div>
@@ -12,7 +12,7 @@
 
 
 	<form action="/response" method="post">
-		<input type="text" name="response_content">
+		<input type="text" name="content">
 		<input type="submit" value="Submit Response">
 	</form>
 
