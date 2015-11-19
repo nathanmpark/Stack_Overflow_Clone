@@ -65,5 +65,5 @@ end
 #delete
 delete '/logout' do
   session[:id] = nil
-  redirect "/login"
+  redirect "/"
 end

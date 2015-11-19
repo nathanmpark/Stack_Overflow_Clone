@@ -17,12 +17,6 @@
   </div>
 
 
-  <form id='answer' action='/answers' method='post'>
-    <input type='text' name='content' placeholder='Your answer here'>
-    <input type="hidden" name="question_id" value="<%= @question.id%>">
-    <input type='submit' value='Answer'>
-  </form>
-
   <form action="/questions/new" method="get" id="question">
     <input type="submit" value="Submit Question">
   </form>
