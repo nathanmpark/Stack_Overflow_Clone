@@ -1,4 +1,4 @@
-# Set up gems listed in the Gemfile.
+#Set up gems listed in the Gemfile.
 # See: http://gembundler.com/bundler_setup.html
 #      http://stackoverflow.com/questions/7243486/why-do-you-need-require-bundler-setup
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
@@ -17,7 +17,7 @@ require 'logger'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
-
+# require 'sinatra-flash'
 require 'erb'
 
 # Some helper constants for path-centric logic

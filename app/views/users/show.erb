@@ -1,0 +1,20 @@
+<!-- user home page / profile -->
+
+
+<h1>Welcome <%=@user.username%></h1>
+
+
+<p>User Info</p>
+<br>
+<label>Username:</label><%=@user.username%>
+<br>
+<label>Email:</label><%=@user.email%>
+<br>
+<a href="/users/edit"><button>edit profile</button></a>
+
+<p> Why not do some of this shit ? </p>
+<!--for logged in user to access voting and questions /users/'#{user.id}'/questions/show -->
+<a href="/questions/new"><button>¿ask?</button></a>
+<a href="/questions/show"><button>peruse questions</button></a>
+<br>
+
