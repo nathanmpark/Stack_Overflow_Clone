@@ -24,10 +24,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
  var hideElement = function(element){
   element.hide();
  }

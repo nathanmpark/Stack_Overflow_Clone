@@ -5,5 +5,7 @@
 <form id='answer' action='/answers' method='post'>
   <!-- create hidden field containing @question.id -->
   <!-- content field to enter data -->
+  <input type='text' name='content' placeholder='Your answer here'>
   <input type="hidden" name="question_id" value="<%= @question.id%>">
+  <input type='submit'>
 </form>

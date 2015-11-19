@@ -1,9 +1,9 @@
 #RESTful Routes
 
-get '/answers' do
+# get '/answers' do
 
-  erb :
-end
+#   erb :
+# end
 
 # The form for this route will be on the question.erb page
 # get '/answers/new' do
@@ -21,8 +21,10 @@ post '/answers' do
   if @answer.save
     return @answer.to_json
   else
-    # ???@error = error.full_message
+    # ??@error = error.full_message
+    # Add @errors if statement above answer form on index page
     erb :questions
+  end
 end
 
 

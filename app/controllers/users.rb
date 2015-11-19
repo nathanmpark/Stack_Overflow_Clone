@@ -1,4 +1,4 @@
-require "sinatra/flash"
+# require "sinatra/flash"
 
 #index
   get "/login" do
