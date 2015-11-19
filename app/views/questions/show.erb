@@ -6,11 +6,13 @@
 	</div>
 
 <div id='comment_holder'>
-	<h4> Comments to Question </h4>
+	<h4> Comments to Question: </h4>
 	<ul>
 		<%@question.comments.each do |comment| %>
-		<li><%=comment.content%></li>
-		<%end %>
+		  <li><%=comment.content%> </li>
+      <br>
+      <br>
+    <%end %>
 	</ul>
 	<form id='question-comment'>
 		<input type="submit" value="Comment">
@@ -23,11 +25,32 @@
 	</form>
 
 </div>
-
+<hr>
 <div id='answer_holder'>
-	<h4>Answers</h4>
+	<h4>Answers:</h4>
+
+  <ul>
+    <%@question.answers.each do |answer| %>
+      <li><%=answer.content%> </li>
+      <br>
+      <form id='answer-comment'>
+        <input type="submit" value="Comment">
+      </form>
+
+      <form id='answer-comment-submitter' action="/comments/<%=answer.id%>/answers" method="post">
+        <input style= 'width: 300px; height: 125px' type="text" name="content">
+        <input type="submit" value="Submit Response">
+      </form>
+
+
+
+      <br>
+      <br>
+    <%end %>
+  </ul>
+
   <form id='answer-form' action='/answers' method='post'>
-    <textarea cols='50' rows='10' name='content' placeholder='Drop yo knowlege, bobo!'></textarea>
+    <textarea form="answer-form" cols='50' rows='10' name='content' placeholder='Drop yo knowlege, bobo!'></textarea>
     <input type='hidden' name='question_id' value="<%= @question.id%>">
     <input type='submit' value='Answer'>
   </form>

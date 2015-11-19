@@ -16,6 +16,15 @@ post '/comments/:id/questions' do
   end
 end
 
+
+post '/comments/:id/answers' do
+  @question_id = Answer.find(params[:id]).question_id
+  @comment = Comment.new(user_id:session[:id], answer_id: params[:id], content: params[:content])
+  if @comment.save
+    redirect "/questions/#{@question_id}"
+  end
+end
+
 #### Edit ####
 get '/comments/:id/edit' do
 
