@@ -11,7 +11,7 @@ enable :sessions
 get '/users/:id' do
   @user = User.find(params[:id])
   # if current_user.id == @user.id
-  session[:id]
+  session[:id] = @user.id
   erb :'/users/show'
   #else
     #flash[:error] = "Fuck off"
@@ -32,8 +32,8 @@ end
   end
 
 #new (can be called register) // also should I be using password_hash?
-  get "users/new" do
-    @user = User.new(params)
+  get "/users/new" do
+    # @user = User.new(params)
     erb :'/users/new'
   end
 
