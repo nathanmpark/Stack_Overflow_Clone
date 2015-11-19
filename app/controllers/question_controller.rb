@@ -11,7 +11,8 @@ end
 
 ### create ###
 post '/questions' do
-	@question = Question.create(params[:question])
+	@question = Question.new(title: params[:title], content: params[:content])
+	@question.save
 	redirect '/questions'
 end
 
