@@ -4,7 +4,6 @@ enable :sessions
 #index
   get "/login" do
     # @user = User.find_by(params[:username], params[:password])
-    user = User.all
     erb :"/users/index"
   end
 
@@ -45,7 +44,7 @@ end
       redirect "/users/#{@user.id}"
     else
       flash[:error] = "Username/Password is incorrect"
-      redirect "/login"
+      redirect "/questions"
     end
   end
 
