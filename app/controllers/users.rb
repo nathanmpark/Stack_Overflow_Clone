@@ -7,6 +7,23 @@ enable :sessions
     erb :"/users/index"
   end
 
+#new (can be called register) // also should I be using password_hash?
+  get "/users/new" do
+    # @user = User.new(params)
+    erb :'/users/new'
+  end
+
+post "/users/new" do
+  @user = User.new(username: params[:username], email: params[:email], password_hash: params[:password])
+  @user.password = params[:password]
+  if @user.save!
+    redirect "users/#{@user.id}"
+  else
+    #@user.errors.full_messages
+    erb :'/users/new'
+  end
+end
+
 #show
 get '/users/:id' do
   @user = User.find(params[:id])
@@ -27,26 +44,9 @@ end
       redirect "/users/#{@user.id}"
     else
       flash[:error] = "Username/Password is incorrect"
-      redirect "/login"
+      redirect "/questions"
     end
   end
-
-#new (can be called register) // also should I be using password_hash?
-  get "/users/new" do
-    # @user = User.new(params)
-    erb :'/users/new'
-  end
-
-post "/users/new" do
-  @user = User.new(params)
-  @user.password = params[:password]
-  if @user.save!
-    redirect "users/#{@user.id}"
-  else
-    #@user.errors.full_messages
-    erb :'/users/new'
-  end
-end
 
 
 #edit

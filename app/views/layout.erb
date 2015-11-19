@@ -18,6 +18,13 @@
   <title></title>
 </head>
 <body>
+
+
+
+  <%= erb :'_header_in' if session[:id].present? %>
+  <%= erb :'_header_out' if session[:id].nil? %>
+
   <%= yield %>
+
 </body>
 </html>
