@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+  hideElement("#comment-submitter");
+  // hideElement("#answer-form");
+  commentHandler()
+  voteHandler();
+});
 //     $('#answer').on('submit'), function(event){
 //       event.preventDefault();
 //       data = $(this).serialize()
@@ -15,7 +20,7 @@ $(document).ready(function() {
 //     });
 
 // // END OF KIM'S WORK
-voteHandler();
+
 
 
 
@@ -30,13 +35,13 @@ voteHandler();
  var showElement = function(element){
   $(element).show()};
 
-  hideElement("#submitter")
 
-  $('#responder').on('click', function(event) {
+  var commentHandler = function(){$('#question-comment').on('click', function(event) {
     event.preventDefault();
-    hideElement("#responder")
-    showElement('#submitter')
+    hideElement("#question-comment")
+    showElement('#comment-submitter')
   });
+};
 
   $('#submitter').on('submit', function(event) {
     event.preventDefault();
@@ -55,6 +60,9 @@ voteHandler();
 
     })
   });
+
+
+
   // Array();
   // var response_submition_final = response_submition[0]["value"]
 
@@ -74,9 +82,6 @@ voteHandler();
   //   };
 
   // })
-
-});
-
 
 
 var voteHandler = function() {
@@ -103,5 +108,4 @@ var voteHandler = function() {
     });
   });
 };
-
 
