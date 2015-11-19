@@ -31,8 +31,17 @@
 
   <ul>
     <%@question.answers.each do |answer| %>
-      <li><%=answer.content%> </li>
+      <li id="answer-format"><%=answer.content%> </li>
       <br>
+      <h4> Comments to Answer: </h4>
+      <ul>
+        <%answer.comments.each do |comment| %>
+          <li><%=comment.content%> </li>
+          <li><%=comment.user.username%> </li>
+          <br>
+          <br>
+        <%end %>
+      </ul>
       <form id='answer-comment'>
         <input type="submit" value="Comment">
       </form>

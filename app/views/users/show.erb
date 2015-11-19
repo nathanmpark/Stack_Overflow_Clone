@@ -13,6 +13,24 @@
 <br>
 <a href="/users/<%=current_user.id%>/edit"><button>edit profile</button></a>
 
+<h2> Your Questions </h2>
+<ul>
+  <% @user.questions.each do |question| %>
+  <li><%= question.title %></li>
+  <% end %>
+</ul>
+
+<br>
+
+<h2> Your Answers </h2>
+<ul>
+  <% @user.answers.each do |answer| %>
+  <li style='font-weight:bold;'> <%= answer.question.title %></li>
+  <li> <%= answer.content %> </li>
+  <br>
+  <% end %>
+</ul>
+
 <p> Why not do some of this shit ? </p>
 <!--for logged in user to access voting and questions /users/'#{user.id}'/questions/show -->
 <a href="/questions/new"><button>¿ask?</button></a>
