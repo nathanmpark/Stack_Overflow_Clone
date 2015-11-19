@@ -5,16 +5,26 @@ $(document).ready(function() {
  }
 
  hideElement("PUT FORM HERE")
- $('PUT BUTTON HERE').on('submit', function(event) {
+ $('PUT Response BUTTON HERE').on('click', function(event) {
   event.preventDefault
   $('PUT FORM HERE').show();
+  hideElement("PUT respond button FORM HERE")
  });
 
-  // This is called after the document has loaded in its entirety
+  // Not finished yet.....
 
- // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  //  $("#comment_form").on('submit', function(event){
+  //   event.preventDefault();
+  //   var formInputs = $(this).serializeArray()
+  //   var comment = formInputs[0]['value'];
+  //   var author = formInputs[1]['value'];
+  //   debugger
+  //   console.log(comment)
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  //   if (comment != '' || author != ''){
+  //     $('#comment_list').append('<li>' + comment + '<span class="author">' + author + '</span></li>');
+  //   };
+
+  // });
 
 });
