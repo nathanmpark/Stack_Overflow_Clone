@@ -25,15 +25,39 @@ $(document).ready(function() {
 
 
  var hideElement = function(element){
-  element.hide();
- }
+  $(element).hide()};
 
- hideElement("PUT FORM HERE")
- $('PUT Response BUTTON HERE').on('click', function(event) {
-  event.preventDefault
-  $('PUT FORM HERE').show();
-  hideElement("PUT respond button FORM HERE")
- });
+ var showElement = function(element){
+  $(element).show()};
+
+  hideElement("#submitter")
+
+  $('#responder').on('click', function(event) {
+    event.preventDefault();
+    hideElement("#responder")
+    showElement('#submitter')
+  });
+
+  $('#submitter').on('submit', function(event) {
+    event.preventDefault();
+    var resp_submission = $('#submitter').serialize();
+
+    $.ajax({
+       method: "POST",
+       url: "/response",
+       dataType: 'text',
+       data: resp_submission
+     })
+    .done(function(response){
+      console.log(response)
+     $('#response_holder').html(response)
+
+
+    })
+  });
+  // Array();
+  // var response_submition_final = response_submition[0]["value"]
+
 
   // Not finished yet.....
 
@@ -49,6 +73,6 @@ $(document).ready(function() {
   //     $('#comment_list').append('<li>' + comment + '<span class="author">' + author + '</span></li>');
   //   };
 
-  // });
+  // })
 
 });
