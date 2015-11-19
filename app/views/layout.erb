@@ -21,8 +21,8 @@
 
 
 
-  <%= erb :'_header_in' if session[:id].present? %>
-  <%= erb :'_header_out' if session[:id].nil? %>
+  <%= erb :'_header_in' if current_user%>
+  <%= erb :'_header_out' unless current_user%>
 
   <%= yield %>
 

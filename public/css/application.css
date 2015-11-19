@@ -73,3 +73,9 @@ li {
 #submitter {
   font-style: italic;
 }
+
+#answer-format {
+  font-style: bold;
+  color:blue;
+  font-size: 20px;
+}
