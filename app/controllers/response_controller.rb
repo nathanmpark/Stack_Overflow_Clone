@@ -18,7 +18,7 @@ get '/response' do
 if @response && response.save
 redirect '/'
 else
-  p ERROR
+  p 'ERROR'
 end
 
 end
