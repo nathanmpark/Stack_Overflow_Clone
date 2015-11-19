@@ -1,6 +1,6 @@
-get '/' do
-  erb index
-end
+# get '/' do
+#   erb :index
+# end
 
 get '/comments' do
  @comments = Comment.all
@@ -13,9 +13,11 @@ get '/comments' do
  end
 
  #### Create ####
-post '/comments' do
-  @comment = Comment.create(params)
-  @comment.content
+post '/comments/:id/questions' do
+  @comment = Comment.new(user_id:session[:id], question_id: params[:id], content: params[:content])
+  if @comment.save
+    redirect "/questions/#{params[:id]}"
+  end
 end
 
 #### Edit ####

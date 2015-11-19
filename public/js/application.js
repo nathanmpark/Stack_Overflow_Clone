@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+  hideElement("#comment-submitter");
+  // hideElement("#answer-form");
+  commentHandler()
+
+});
 //     $('#answer').on('submit'), function(event){
 //       event.preventDefault();
 //       data = $(this).serialize()
@@ -30,13 +35,13 @@ $(document).ready(function() {
  var showElement = function(element){
   $(element).show()};
 
-  hideElement("#submitter")
 
-  $('#responder').on('click', function(event) {
+  var commentHandler = function(){$('#question-comment').on('click', function(event) {
     event.preventDefault();
-    hideElement("#responder")
-    showElement('#submitter')
+    hideElement("#question-comment")
+    showElement('#comment-submitter')
   });
+};
 
   $('#submitter').on('submit', function(event) {
     event.preventDefault();
@@ -75,4 +80,3 @@ $(document).ready(function() {
 
   // })
 
-});
