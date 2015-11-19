@@ -1,7 +1,7 @@
 class Answer < ActiveRecord::Base
-  validates :users, existence: true
-  validates :questions, existence: true
-  #
+  # validates :user, existence: true
+  # validates :question, existence: true
+
   belongs_to :users
   belongs_to :questions
 end
