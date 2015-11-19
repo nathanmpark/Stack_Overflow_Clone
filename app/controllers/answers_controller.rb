@@ -11,6 +11,7 @@
 #CREATE
 post '/answers' do
   # raise params.inspect
+  # raise params.inspect
   # we will ajax this
   # current_user
   # current_user = User.find(session[:id])
@@ -19,12 +20,17 @@ post '/answers' do
   #   - question_id needs to be in the form!!
   @answer = Answer.new(content: params[:content], user_id: session[:id], question_id: params[:question_id])
   if @answer.save
-    return @answer.to_json
+    redirect "/questions/#{params[:question_id]}"
   else
+    redirect '/'
+  end
+  # if @answer.save
+  #   redirect
+  # else
     # ??@error = error.full_message
     # Add @errors if statement above answer form on index page
-    erb :questions
-  end
+  #   erb :questions
+  # end
 end
 
 #

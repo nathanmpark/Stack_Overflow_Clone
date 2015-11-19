@@ -3,7 +3,9 @@
 		<h3 id="dbc-overflow">DBC OVERFLOW</h3>
 
 	  <a class="home-nav" href="/questions"> Home</a>
+    <%if current_user%>
     <a class="user-profile" href="/users/<%=current_user.id%>"> Profile</a>
+    <%end%>
 
 	    <form class="right-nav" action="/logout" method="post">
 	    <input type="hidden" name = "_method" value="DELETE">
