@@ -35,6 +35,11 @@ get '/users/:id' do
   # end
 end
 
+#edit
+get '/users/:id/edit' do
+  erb :'/users/edit'
+end
+
 
 #create
   post "/login" do
@@ -50,7 +55,7 @@ end
 
 
 #edit
-put '/users/edit/:id' do
+put '/users/:id' do
   @user = User.find(params[:id])
   @user.update(params)
   redirect "/user/#{@user.id}"

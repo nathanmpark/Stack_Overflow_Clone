@@ -44,7 +44,7 @@ $(document).ready(function() {
 
     $.ajax({
        method: "POST",
-       url: "/response",
+       url: "/comments",
        dataType: 'text',
        data: resp_submission
      })

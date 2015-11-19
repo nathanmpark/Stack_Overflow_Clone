@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   include BCrypt
   has_many :answers
   has_many :questions
-  has_many :responses
+  has_many :comments
+  has_many :votes
   validates :email, uniqueness: true
 
   def password
