@@ -7,6 +7,7 @@ gem 'pg'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-contrib'
+# gem 'sinatra-flash'
 
 # Use Thin for our web server
 gem 'thin'

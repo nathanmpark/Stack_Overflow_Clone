@@ -1,0 +1,22 @@
+<div class="container">
+<br>
+
+	<div class="question">
+		<div id="question-title"> <%= @question.title %></div>
+		<div id="question-content"> <%= @question.content %> </div>
+	</div>
+
+<div id='response_holder'>--</div>
+
+	<form id='responder'>
+		<input type="submit" value="Respond">
+	</form>
+
+
+	<form id='submitter' action="/response" method="post">
+		<input style= 'width: 300px; height: 125px' type="text" name="content">
+		<input type="submit" value="Submit Response">
+	</form>
+
+
+</div>
