@@ -1,17 +1,35 @@
-# 10.times
-# user = User.create(username: "This is the username of a user", email: "This is the email of a user with the password 'password' ", password_hash: BCrypt::Password.create("password"))
-# do
+require 'Faker'
 
-# 10.times do
-# answer = Answer.create(content: "This is the content of an answer")
-# end
 
-# 10.times do
-# response = Response.new(content: "This is the content of a response")
-# end
-
-10.times do
-question = Question.create(title: "This is the title of a question", content: "This is the content of a question")
+20.times do
+  User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password_hash: "password")
 end
 
+100.times do
+  Question.create(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph, user_id: rand(1..20))
+end
+
+100.times do
+  Answer.create(content: Faker::Lorem.sentence, question_id: rand(1..100), user_id: rand(1..20))
+end
+
+100.times do
+   Comment.create(content: Faker::Lorem.paragraph, question_id: rand(1..100), user_id: rand(1..20))
+end
+
+100.times do
+   Comment.create(content: Faker::Lorem.paragraph, answer_id: rand(1..100), user_id: rand(1..20))
+end
+
+vote_type = [true,false]
+
+1000.times do
+  Vote.create(upvote:vote_type.sample, question_id:rand(1..100), user_id: rand(1..20))
+end
+1000.times do
+  Vote.create(upvote:vote_type.sample, answer_id:rand(1..100), user_id: rand(1..20))
+end
+1000.times do
+  Vote.create(upvote:vote_type.sample, comment_id:rand(1..100), user_id: rand(1..20))
+end
 
