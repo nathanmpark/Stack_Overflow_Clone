@@ -3,22 +3,22 @@
 
   <div class="all-questions">
       <% @questions.each do |question| %>
-     <% @question = question %>
      <ul>
       <li id="<%=question.id%>">
         <a href="#"><img src='upvote.png'class='vote_buttons' id='upvote'></a>
-        <span><%=question.tally_votes%></span>
+        <span id='vote_count'><%=question.tally_votes%></span>
         <a href="#"><img src='downvote.png' class='vote_buttons' id='downvote'></a>
-        <a href="/questions/<%=@question.id %>"> <%= @question.title %></a>
-
+        <a href="/questions/<%=question.id %>"> <%= question.title %></a>
+        <span class='author'>by: <a href='/users/<%= question.user.id%>'><%=question.user.username%></span>
       </li>
      </ul>
       <% end %>
   </div>
 
-
-  <form action="/questions/new" method="get" id="question">
-    <input type="submit" value="Submit Question">
-  </form>
+  <% if current_user %>
+    <form action="/questions/new" method="get" id="question">
+      <input type="submit" value="Submit Question">
+    </form>
+  <% end %>
 
 </div>

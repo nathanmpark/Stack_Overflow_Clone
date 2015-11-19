@@ -104,7 +104,7 @@ var voteHandler = function() {
     })
 
     request.done(function(data) {
-      $('#'+data.question_id + ' span').html(data.total_votes);
+      $('#'+data.question_id + ' span#vote_count').html(data.total_votes);
     });
   });
 };

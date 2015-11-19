@@ -70,6 +70,12 @@ li {
   list-style-type: none;
 }
 
+.author {
+
+  font-size: .75em;
+  display: block;
+}
+
 #submitter {
   font-style: italic;
 }
@@ -79,3 +85,4 @@ li {
   color:blue;
   font-size: 20px;
 }
+
