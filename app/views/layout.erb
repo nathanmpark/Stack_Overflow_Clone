@@ -18,6 +18,9 @@
   <title></title>
 </head>
 <body>
+
+  <%= erb(:_header_in, :layout => false) %>
+  <%= erb(:_header_out, :layout => false) %>
   <%= yield %>
 </body>
 </html>
