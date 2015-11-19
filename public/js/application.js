@@ -1,9 +1,10 @@
 $(document).ready(function() {
 
   hideElement("#comment-submitter");
-  // hideElement("#answer-form");
-  commentHandler()
+  hideElement("#answer-comment-submitter");
+  commentHandler();
   voteHandler();
+  answerCommentHandler();
 });
 //     $('#answer').on('submit'), function(event){
 //       event.preventDefault();
@@ -109,3 +110,10 @@ var voteHandler = function() {
   });
 };
 
+
+var answerCommentHandler = function(){$('#answer-comment').on('click', function(event) {
+    event.preventDefault();
+    hideElement("#answer-comment")
+    showElement('#answer-comment-submitter');
+  });
+};
