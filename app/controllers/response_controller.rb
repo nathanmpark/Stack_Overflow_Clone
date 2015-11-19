@@ -13,14 +13,9 @@ get '/response' do
  end
 
  #### Create ####
- post '/response' do
-@response = Response.new(params)
-if @response && response.save
-redirect '/'
-else
-  p 'ERROR'
-end
-
+post '/response' do
+  @comment = Response.create(params)
+  @comment.content
 end
 
 #### Edit ####
