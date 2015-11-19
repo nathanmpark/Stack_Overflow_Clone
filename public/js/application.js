@@ -15,7 +15,7 @@ $(document).ready(function() {
 //     });
 
 // // END OF KIM'S WORK
-
+voteHandler();
 
 
 
@@ -76,3 +76,32 @@ $(document).ready(function() {
   // })
 
 });
+
+
+
+var voteHandler = function() {
+  $(".vote_buttons").on("click", function(event){
+    event.preventDefault();
+    // debugger
+    var question_id = $(this).parent().parent().attr("id")
+    if ($(this).attr("id") === "upvote"){
+      var vote_type = true
+    }
+    else if ($(this).attr("id") === "downvote") {
+      var vote_type = false
+    }
+
+    var request = $.ajax({
+      url: "/questions/" + question_id + "/votes",
+      method: "post",
+      dataType: "json",
+      data: {upvote: vote_type, question_id: question_id}
+    })
+
+    request.done(function(data) {
+      $('#'+data.question_id + ' span').html(data.total_votes);
+    });
+  });
+};
+
+
