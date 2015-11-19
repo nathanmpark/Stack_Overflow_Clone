@@ -11,14 +11,15 @@ end
 
 ### create ###
 post '/questions' do
-	@question = Question.create(params[:question])
+	@question = Question.new(title: params[:title], content: params[:content])
+	@question.save
 	redirect '/questions'
 end
 
 ### show ###
 get '/questions/:id' do
 	@question = Question.find(params[:id])
-	session[:question_id] = @question.id
+	# session[:question_id] = @question.id
 	# @answer = @question.answer
 	# @response = @question.response
 	erb :'questions/show'
