@@ -60,3 +60,12 @@ th {
 #response_holder {
 	font-style: italic;
 }
+
+.vote_buttons {
+  height: 2%;
+  width: 2%;
+}
+
+li {
+  list-style-type: none;
+}
