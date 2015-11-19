@@ -3,7 +3,8 @@ a:visited {color: #126e70;}
 a:hover {color: #e0eff1;}
 
 body {
-	background-color: #7db4b5;
+  background-image: url("http://www.hd-wallpapersdownload.com/upload/cat-wallpaper/hd-cat-background-pics-wallpaper.jpg");
+  background-color: #7db4b5;
 }
 .container {
   margin: 20px auto;
