@@ -1,6 +1,12 @@
 require "sinatra/flash"
 enable :sessions
 
+  before '/users/:id/edit' do
+    unless current_user.id == params[:id]
+      redirect "/questions"
+    end
+  end
+
 #index
   get "/login" do
     # @user = User.find_by(params[:username], params[:password])
@@ -17,7 +23,7 @@ post "/users/new" do
   @user = User.new(username: params[:username], email: params[:email], password_hash: params[:password])
   @user.password = params[:password]
   if @user.save!
-    redirect "users/#{@user.id}"
+    redirect "/users/#{@user.id}"
   else
     #@user.errors.full_messages
     erb :'/users/new'
