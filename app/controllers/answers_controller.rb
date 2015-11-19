@@ -2,8 +2,6 @@
 
 # get '/answers' do
 
-#   erb :
-# end
 
 # The form for this route will be on the question.erb page
 # get '/answers/new' do
