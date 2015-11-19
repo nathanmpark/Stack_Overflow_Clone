@@ -69,3 +69,7 @@ th {
 li {
   list-style-type: none;
 }
+
+#submitter {
+  font-style: italic;
+}
