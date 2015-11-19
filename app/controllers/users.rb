@@ -37,6 +37,7 @@ end
 
 #edit
 get '/users/:id/edit' do
+  @user = User.find(params[:id])
   erb :'/users/edit'
 end
 
@@ -57,8 +58,8 @@ end
 #edit
 put '/users/:id' do
   @user = User.find(params[:id])
-  @user.update(params)
-  redirect "/user/#{@user.id}"
+  @user.update(username:params[:username], email:params[:email], password:params[:password])
+  redirect "/users/#{@user.id}"
 end
 
 
