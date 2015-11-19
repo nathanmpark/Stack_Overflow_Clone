@@ -7,3 +7,7 @@
 th {
   text-align: left;
 }
+
+.right-nav {
+	float: right;
+}

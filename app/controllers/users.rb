@@ -4,8 +4,26 @@ enable :sessions
 #index
   get "/login" do
     # @user = User.find_by(params[:username], params[:password])
+    user = User.all
     erb :"/users/index"
   end
+
+#new (can be called register) // also should I be using password_hash?
+  get "/users/new" do
+    # @user = User.new(params)
+    erb :'/users/new'
+  end
+
+post "/users/new" do
+  @user = User.new(username: params[:username], email: params[:email], password_hash: params[:password])
+  @user.password = params[:password]
+  if @user.save!
+    redirect "users/#{@user.id}"
+  else
+    #@user.errors.full_messages
+    erb :'/users/new'
+  end
+end
 
 #show
 get '/users/:id' do
@@ -30,23 +48,6 @@ end
       redirect "/login"
     end
   end
-
-#new (can be called register) // also should I be using password_hash?
-  get "/users/new" do
-    # @user = User.new(params)
-    erb :'/users/new'
-  end
-
-post "/users/new" do
-  @user = User.new(params)
-  @user.password = params[:password]
-  if @user.save!
-    redirect "users/#{@user.id}"
-  else
-    #@user.errors.full_messages
-    erb :'/users/new'
-  end
-end
 
 
 #edit

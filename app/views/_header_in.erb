@@ -1,13 +1,12 @@
-<h3>DBC OVERFLOWWWWWWWW</h3>
+<div class="container">
+	<h3>DBC OVERFLOW</h3>
 
-  <form style="text-align:left;" action="/questions" method="get">
-    <input type="submit" value="Home, sweet home">
-  </form>
+	  <a id="home-nav" href="/questions"> Home</a>
 
 
-  <form style="text-align:right;" action="/login" method="post">
-    <input type="submit" value="Sign Up">
-  </form>
-  <form style="text-align:right;" action="/user/new" method="post">
-    <input type="submit" value="Log In">
-  </form>
+	    <form id="right-nav" action="/logout" method="post">
+	    <input type="hidden" name = "_method" value="DELETE">
+    	<input type="submit" value="Log Out">
+  		</form>
+
+ </div>
