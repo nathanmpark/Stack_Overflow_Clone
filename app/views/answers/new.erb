@@ -1,0 +1,9 @@
+<!-- Question is displayed -->
+<!-- @question.title,  @question.votes -->
+
+
+<form id='answer' action='/answers' method='post'>
+  <!-- create hidden field containing @question.id -->
+  <!-- content field to enter data -->
+  <input type="hidden" name="question_id" value="<%= @question.id%>">
+</form>
