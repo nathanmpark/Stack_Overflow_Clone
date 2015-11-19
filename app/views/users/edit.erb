@@ -1,0 +1,20 @@
+<div class="content-container">
+
+  <h1>Update your info</h1>
+
+  <form action="/users/<%= @user.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+
+    <p>username</p>
+    <input type="text" name="username" value="<%= @user.username %>">
+
+    <p>email</p>
+    <input type="text" name="email" value="<%= @user.email %>">
+
+    <p>password</p>
+    <input type="password" name="password">
+    <input type="submit" value="Update">
+  </form>
+
+
+</div>

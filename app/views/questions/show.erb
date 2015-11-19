@@ -3,6 +3,8 @@
 	<div class="question">
 		<div id="question-title-1"> <%= @question.title %></div>
 		<div id="question-content"> <%= @question.content %> </div>
+    <br>
+    Posted By: <li id="submitter">-<%=@question.user.username%> </li>
 	</div>
 
 <div id='comment_holder'>
@@ -10,6 +12,7 @@
 	<ul>
 		<%@question.comments.each do |comment| %>
 		  <li><%=comment.content%> </li>
+      <li id="submitter">-<%=comment.user.username%> </li>
       <br>
       <br>
     <%end %>
@@ -31,8 +34,18 @@
 
   <ul>
     <%@question.answers.each do |answer| %>
-      <li><%=answer.content%> </li>
+      <li id="answer-format"><%=answer.content%> </li>
+      <li id="submitter">-<%=answer.user.username%> </li>
       <br>
+      <h4> Comments to Answer: </h4>
+      <ul>
+        <%answer.comments.each do |comment| %>
+          <li><%=comment.content%> </li>
+          <li id="submitter">-<%=comment.user.username%> </li>
+          <br>
+          <br>
+        <%end %>
+      </ul>
       <form id='answer-comment'>
         <input type="submit" value="Comment">
       </form>

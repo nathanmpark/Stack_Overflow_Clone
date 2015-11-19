@@ -2,7 +2,7 @@ require "sinatra/flash"
 enable :sessions
 
   before '/users/:id/edit' do
-    unless current_user.id == params[:id]
+    unless current_user.id == params[:id].to_i
       redirect "/questions"
     end
   end
@@ -23,6 +23,7 @@ post "/users/new" do
   @user = User.new(username: params[:username], email: params[:email], password_hash: params[:password])
   @user.password = params[:password]
   if @user.save!
+    session[:id] = @user.id
     redirect "/users/#{@user.id}"
   else
     #@user.errors.full_messages
@@ -34,7 +35,7 @@ end
 get '/users/:id' do
   @user = User.find(params[:id])
   # if current_user.id == @user.id
-  session[:id] = @user.id
+  # session[:id] = @user.id
   erb :'/users/show'
   #else
     #flash[:error] = "Fuck off"
@@ -43,6 +44,7 @@ end
 
 #edit
 get '/users/:id/edit' do
+  @user = User.find(params[:id])
   erb :'/users/edit'
 end
 
@@ -63,8 +65,8 @@ end
 #edit
 put '/users/:id' do
   @user = User.find(params[:id])
-  @user.update(params)
-  redirect "/user/#{@user.id}"
+  @user.update(username:params[:username], email:params[:email], password:params[:password])
+  redirect "/users/#{@user.id}"
 end
 
 
