@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+  hideElement("#comment-submitter");
+  // hideElement("#answer-form");
+  commentHandler()
+  voteHandler();
+});
 //     $('#answer').on('submit'), function(event){
 //       event.preventDefault();
 //       data = $(this).serialize()
@@ -30,13 +35,13 @@ $(document).ready(function() {
  var showElement = function(element){
   $(element).show()};
 
-  hideElement("#submitter")
 
-  $('#responder').on('click', function(event) {
+  var commentHandler = function(){$('#question-comment').on('click', function(event) {
     event.preventDefault();
-    hideElement("#responder")
-    showElement('#submitter')
+    hideElement("#question-comment")
+    showElement('#comment-submitter')
   });
+};
 
   $('#submitter').on('submit', function(event) {
     event.preventDefault();
@@ -55,6 +60,9 @@ $(document).ready(function() {
 
     })
   });
+
+
+
   // Array();
   // var response_submition_final = response_submition[0]["value"]
 
@@ -75,4 +83,29 @@ $(document).ready(function() {
 
   // })
 
-});
+
+var voteHandler = function() {
+  $(".vote_buttons").on("click", function(event){
+    event.preventDefault();
+    // debugger
+    var question_id = $(this).parent().parent().attr("id")
+    if ($(this).attr("id") === "upvote"){
+      var vote_type = true
+    }
+    else if ($(this).attr("id") === "downvote") {
+      var vote_type = false
+    }
+
+    var request = $.ajax({
+      url: "/questions/" + question_id + "/votes",
+      method: "post",
+      dataType: "json",
+      data: {upvote: vote_type, question_id: question_id}
+    })
+
+    request.done(function(data) {
+      $('#'+data.question_id + ' span#vote_count').html(data.total_votes);
+    });
+  });
+};
+
